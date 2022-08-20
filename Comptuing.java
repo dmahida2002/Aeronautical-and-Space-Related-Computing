@@ -12,7 +12,7 @@ public class Comptuing {
 		
 		InadequateMapDisplay displayMap = new InadequateMapDisplay();
 		
-		displayMap.showMap();
+//		displayMap.showMap();
 		
 	}
 }
