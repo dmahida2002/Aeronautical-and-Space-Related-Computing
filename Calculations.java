@@ -1,4 +1,3 @@
-
 public class Calculations {
 	
 	private int craftWeight;
