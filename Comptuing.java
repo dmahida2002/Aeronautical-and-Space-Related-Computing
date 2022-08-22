@@ -10,9 +10,9 @@ public class Comptuing {
 		System.out.println("--> Travel\nYou can travel to: " + system.getNeighbors() + "\n");
 		System.out.println("--> Characteristics of " + system.getCurrentLocation() + ": \n" + system.getCharacteristics());
 		
-//		InadequateMapDisplay displayMap = new InadequateMapDisplay();
+		System.out.println("\n\n");
 		
-//		displayMap.showMap();
+		system.getMap();
 		
 	}
 }

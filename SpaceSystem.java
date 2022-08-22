@@ -10,11 +10,11 @@ public class SpaceSystem {
 	
 	private int currentBody;
 	
+	private InformationScraper scraper = new InformationScraper();
+	
 	public SpaceSystem() {
 		
-		InformationScraper scraper = new InformationScraper();
-		
-		int count = 12;
+		int count = (int)(Math.random()*((8 - 2) + 1) + 0);
 		
 		try {
 			
@@ -25,8 +25,6 @@ public class SpaceSystem {
 			
 			System.out.println("Something went wrong.");
 		}
-		
-		
 	}
 	
 	public SpaceSystem(String solar) {
@@ -95,7 +93,7 @@ public class SpaceSystem {
 	
 	public String getNeighbors() {
 		
-		int numberOfNeighbors = (mySystem.neighbors(currentBody).length - 1);
+		int numberOfNeighbors = (mySystem.neighbors(currentBody).length);
 		
 		int[] indexOfNeighbors = mySystem.neighbors(currentBody);
 		
@@ -127,24 +125,29 @@ public class SpaceSystem {
 		return getChars;
 	}
 	
+	public int getSystemSize() {
+		
+		return mySystem.size();
+	}
+	
 	private void generateNewSystem(String names[], int count) {
 		
-		mySystem = new Graph(count + 1);
+		mySystem = new Graph(count);
 		
 		BigInteger massValue = new BigInteger("0");
 		BigInteger gravValue = new BigInteger("0");
 		BigInteger radValue = new BigInteger("0");
 		
-		for(int i = 0; i  < count; i++) {
+		for(int i = 0; i < count; i++) {
 			
 			mySystem.setLabel(i, names[i], massValue, gravValue, radValue);
 		}
 		
 		int initialLocation = 0;
 		
-		while(initialLocation != 0) {
+		while(initialLocation == 0) {
 			
-			initialLocation = (int)(Math.random()*((mySystem.size()) - 0 + 1) + 0);
+			initialLocation = (int)(Math.random()*((mySystem.size() - 0)) + 0);
 			
 			currentBody = initialLocation;
 		}
@@ -162,6 +165,19 @@ public class SpaceSystem {
 				
 				mySystem.addEdge(i, j);
 			}
+		}
+	}
+	
+	public void getMap() {
+		
+		try {
+			
+			scraper.getMap(mySystem.size(), getCurrentLocationRaw());
+		} 
+		
+		catch (IOException e) {
+			
+			e.printStackTrace();
 		}
 	}
 }
