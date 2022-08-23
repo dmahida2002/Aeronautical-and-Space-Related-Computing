@@ -82,6 +82,10 @@ public class InformationScraper {
 		
 		String allURLMaps[][] = {
 				
+				// 1 Planet Mapping
+				
+				{"https://textdoc.co/SBeOD2Io7U8rw9l6", "https://textdoc.co/CjTtlBDgE7MxWP5q"},
+				
 				// 2 Planet Mapping
 				
 				{"https://textdoc.co/30ULVQrtYPuy78FR", "https://textdoc.co/RlSN6Zvg2PobDXqH", "https://textdoc.co/CPV5ZX4BflbDhnr8"},
@@ -106,9 +110,29 @@ public class InformationScraper {
 				{"https://textdoc.co/61DeH8Uv2zkhaE3t", "https://textdoc.co/0O4p1tM7XIABFUTK", "https://textdoc.co/o0eQNSKPWdfCO7IB",
 					    "https://textdoc.co/AIWpxtOXfNkhGr2U", "https://textdoc.co/td7S4joNnmsiB6Hx", "https://textdoc.co/2dCFmqhZwIAKN548",
 					    "https://textdoc.co/qWiSRaZ8NfCnGhxM"},
+				
+				// 7 Planet Mapping
+				
+				{"https://textdoc.co/i34FafzOt6uSAmCb", "https://textdoc.co/ZJc2XQaC3hSULiT5", "https://textdoc.co/OW84YM2d7SI9KJGi",
+					    "https://textdoc.co/Acdi1LHonbK7qhkP", "https://textdoc.co/3rgm2ZItOuBxEc9k", "https://textdoc.co/o6JhEmXYx9jGpFQ1",
+					    "https://textdoc.co/vkumGsHAdfI5li1x", "https://textdoc.co/b7U5pEHklPtxgyzv"},
+				
+				// 8 Planet Mapping
+				
+				{"https://textdoc.co/AzaPnxhQBFr8GN6O", "https://textdoc.co/9J1RqUOFjuV4Ppk5", "https://textdoc.co/30EoTtwBYdGV8KOi", 
+					    "https://textdoc.co/NvK7dCxYfzDqSEyc", "https://textdoc.co/nwCfTrlZaqvNOcFX", "https://textdoc.co/qrRLVfnOg18v4FkK",
+					    "https://textdoc.co/IVtAYi0jGNm8W1sD", "https://textdoc.co/9n5N2WGsfyjEiV3z", "https://textdoc.co/tZDMA2cXfOSu9KPN"},
+				
+				//9 Planet Mapping
+				
+				{"https://textdoc.co/7F6tWJ5ZCuLqjDo3", "https://textdoc.co/QtYI1SGadFN827K5", "https://textdoc.co/TzCFavuMn2gLrVKp",
+					    "https://textdoc.co/4HcbDgedYFf5RAwS", "https://textdoc.co/Vcx8aqO62EnLUTXu", "https://textdoc.co/kcfF3ys1Ku80Jq5b",
+					    "https://textdoc.co/d6YAvPT9GbliR257", "https://textdoc.co/whligxJrC8ByX4tY", "https://textdoc.co/Rsrp5h3Pq78zXYJL", 
+					    "https://textdoc.co/vt9AyosB2CaDqlik"}
+				
 				};
 		
-		for(int i = 2; i < 10; i++) {
+		for(int i = 1; i < 10; i++) {
 			
 			if(systemSize == i) {
 				

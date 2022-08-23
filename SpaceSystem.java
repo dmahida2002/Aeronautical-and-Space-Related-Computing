@@ -14,7 +14,7 @@ public class SpaceSystem {
 	
 	public SpaceSystem() {
 		
-		int count = (int)(Math.random()*((8 - 2) + 1) + 0);
+		int count = (int)(Math.random()*(9 - 1 + 1) + 1);
 		
 		try {
 			
