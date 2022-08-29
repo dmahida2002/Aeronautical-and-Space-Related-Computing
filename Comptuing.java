@@ -15,9 +15,9 @@ public class Comptuing {
 			System.out.println("--> Location\nYou are at " + system.getCurrentLocation() + ".\n");
 			System.out.println("--> Travel\nYou can travel to: " + system.getNeighbors() + "\n");
 			System.out.println("--> Characteristics of " + system.getCurrentLocation() + ": \n" + system.getCharacteristics());
+			
+			System.out.println("\n\n");
 		}
-		
-		System.out.println("\n\n");
 		
 //		system.getMap();
 		
