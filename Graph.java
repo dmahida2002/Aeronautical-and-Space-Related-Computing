@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class Graph {
@@ -116,18 +117,18 @@ public class Graph {
     * @param radius radius of the body in miles
     */
    
-   public void setLabel(int vertex, Object newLabel, BigInteger mass, BigInteger graviation, BigInteger radius) {
+   public void setLabel(int vertex, Object newLabel, BigInteger mass, BigDecimal graviation, BigInteger radius) {
       
 	   labels[vertex] = newLabel;
 	   
-	   BigInteger[] characteristics = {mass, graviation, radius};
+	   Object characteristics[] = {mass, graviation, radius};
 	   
 	   properties[vertex] = characteristics;
    }
    
-   public BigInteger[] getProperties(int vertex) {
+   public Object[] getProperties(int vertex) {
 	   
-	   return (BigInteger[]) properties[vertex];
+	   return (Object[]) properties[vertex];
    }
 
    /**

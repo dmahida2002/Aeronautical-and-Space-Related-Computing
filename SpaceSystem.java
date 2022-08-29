@@ -1,10 +1,14 @@
 import java.util.Arrays;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.List;
 
 public class SpaceSystem {
+	
+	private Calculations calculate = new Calculations();
 	
 	private Graph mySystem;
 	
@@ -24,60 +28,6 @@ public class SpaceSystem {
 		catch (IOException e) {
 			
 			System.out.println("Something went wrong.");
-		}
-	}
-	
-	public SpaceSystem(String solar) {
-		
-		/* 9 planets in our system but passed a value of (10 + 1) because we are including
-		 * a star.
-		 * 
-		 * Maybe we could have 2 stars like the system Luke Skywalker lived in...
-		 */
-		
-		mySystem = new Graph(10);
-		
-		/* The setLabel() method has the following parameters:
-		 * 
-		 * - Label #
-		 * - Label name
-		 * - Label mass
-		 * - Label gravitational pull (in m/s�)
-		 * - Label radius (in miles)
-		 */
-		
-		mySystem.setLabel(0, "Sun", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(1, "Mercury", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(2, "Venus", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(3, "Earth", new BigInteger("5972000000000000000000000"), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(4, "Mars", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(5, "Jupiter", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(6, "Saturn", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(7, "Uranus", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(8, "Neptune", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		mySystem.setLabel(9, "Pluto", BigInteger.valueOf(1), BigInteger.valueOf(2), BigInteger.valueOf(3));
-		
-		/* Starting position is 3 (Earth). We will add edges to all
-		 * bodies connecting them to every other bodies in the system.
-		 * 
-		 * In other words, every planet should have access to travel to entire system but itself.
-		 */
-		
-		currentBody = 3;
-		
-		for(int i = 0; i < mySystem.size(); i++) {
-			
-			for(int j = 0; j < mySystem.size(); j++) {
-				
-				// Do not add the body you are currently at as an edge.
-				
-				if(j == currentBody) {
-					
-					continue;
-				}
-				
-				mySystem.addEdge(i, j);
-			}
 		}
 	}
 	
@@ -115,12 +65,12 @@ public class SpaceSystem {
 	
 	public String getCharacteristics() {
 		
-		BigInteger getDetails[] = mySystem.getProperties(currentBody);
+		Object getDetails[] = mySystem.getProperties(currentBody);
 		
-		String getChars = "Mass: " + getDetails[0] + " kg";
+		String getChars = "Mass: " + getDetails[0].toString() + " kg";
 		
-		getChars += "\nGravitational Pull: " + getDetails[1] + " m/s�";
-		getChars += "\nRadius: " + getDetails[2] + " mi";
+		getChars += "\nGravitational Pull: " + getDetails[1].toString() + " m/s�";
+		getChars += "\nRadius: " + getDetails[2].toString() + " meters";
 		
 		return getChars;
 	}
@@ -134,14 +84,7 @@ public class SpaceSystem {
 		
 		mySystem = new Graph(count);
 		
-		BigInteger massValue = new BigInteger("0");
-		BigInteger gravValue = new BigInteger("0");
-		BigInteger radValue = new BigInteger("0");
-		
-		for(int i = 0; i < count; i++) {
-			
-			mySystem.setLabel(i, names[i], massValue, gravValue, radValue);
-		}
+		calculate.addCharacteristics(mySystem, names, count);
 		
 		int initialLocation = 0;
 		
@@ -168,6 +111,20 @@ public class SpaceSystem {
 		}
 	}
 	
+	public void travelTo(int position) {
+		
+		if(position > mySystem.size()) {
+			
+			System.out.println("That body does not exist.");
+		}
+		
+		else {
+			
+			currentBody = position;
+		}
+		
+	}
+	
 	public void getMap() {
 		
 		try {
@@ -177,7 +134,7 @@ public class SpaceSystem {
 		
 		catch (IOException e) {
 			
-			e.printStackTrace();
+			System.out.println("Something went wrong.");
 		}
 	}
 }

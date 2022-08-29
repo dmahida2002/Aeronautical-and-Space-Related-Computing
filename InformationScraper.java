@@ -13,6 +13,16 @@ public class InformationScraper {
 		
 		String listOfNames[] = new String[count];
 		
+		for(int i = 0; i < count; i++) {
+			
+			listOfNames[i] = "x" + i;
+		}
+		
+		if(true) {
+			
+			return listOfNames;
+		}
+		
 		String URL = "https://www.coolgenerator.com/planet-name-generator";
 		String trail = "";
 		
