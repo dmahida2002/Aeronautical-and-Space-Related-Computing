@@ -93,13 +93,41 @@ public class SpaceSystem {
 	
 	public String getCharacteristics() {
 		
-		String getChars = "Mass: " + currentDetails[0].toString() + " kg";
+		String getChars = "Mass: " + getMass() + " kg";
 		
-		getChars += "\nGravitational Pull: " + currentDetails[1].toString() + " m/s�";
-		getChars += "\nRadius: " + currentDetails[2].toString() + " meters";
+		getChars += "\nGravitational Pull: " + getGravPull() + " m/s�";
+		getChars += "\nRadius: " + getRadius() + " meters";
 		getChars += "\nEscape Velocity: " + getEscapeVelocity() + " km/s";
 		
 		return getChars;
+	}
+	
+	public String getMass() {
+		
+		return currentDetails[0].toString();
+	}
+	
+	public String getGravPull() {
+		
+		return currentDetails[1].toString();
+	}
+	
+	public String getRadius() {
+		
+		return currentDetails[2].toString();
+	}
+	
+	public String getEscapeVelocity() {
+		
+		/* Mass and radius are passed as a BigInteger.
+		 * 
+		 * We need to pass BigDecimal.
+		 * 
+		 * We need to convert the two into BigDecimal by converting them to String and
+		 * then into BigDecimal.
+		 */
+		
+		return calculate.getEscapeVelocity(new BigDecimal(currentDetails[0].toString()), new BigDecimal(currentDetails[2].toString()));
 	}
 	
 	/**
@@ -154,7 +182,7 @@ public class SpaceSystem {
 	
 	public void travelTo(int position) {
 		
-		if(position > mySystem.size()) {
+		if(position > mySystem.size() || position < 0) {
 			
 			System.out.println("That body does not exist.");
 		}
@@ -165,20 +193,6 @@ public class SpaceSystem {
 		}
 		
 		currentDetails = mySystem.getProperties(currentBody);
-	}
-	
-	public String getEscapeVelocity() {
-		
-		/* Mass and radius are passed as a BigInteger.
-		 * 
-		 * We need to pass BigDecimal.
-		 * 
-		 * We need to convert the two into BigDecimal by coverting them to string and
-		 * then into BigDecimal.
-		 */
-		
-		
-		return calculate.getEscapeVelocity(new BigDecimal(currentDetails[0].toString()), new BigDecimal(currentDetails[2].toString()));
 	}
 	
 	/**

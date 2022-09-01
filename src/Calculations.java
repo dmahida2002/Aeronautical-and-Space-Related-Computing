@@ -269,4 +269,11 @@ public class Calculations {
 		
 		return escapeVelocity;
 	}
+	
+	public void canTravelTo(int body, int fuel, String escapeVel) {
+		
+		double escapeVelocity = Double.valueOf(escapeVel);
+		
+		
+	}
 }
